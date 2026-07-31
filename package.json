@@ -44,7 +44,7 @@
   "dependencies": {
     "@iconify-json/lucide": "^1.2.20",
     "@slidev/types": "^52.18.0",
-    "echarts": "^5.5.1"
+    "echarts": "^6.1.0"
   },
   "devDependencies": {
     "@slidev/cli": "^52.18.0"
