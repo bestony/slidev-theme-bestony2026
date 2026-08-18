@@ -51,11 +51,11 @@
   },
   "dependencies": {
     "@iconify-json/lucide": "^1.2.20",
+    "@slidev/types": "^52.19.0",
     "echarts": "^6.1.0"
   },
   "devDependencies": {
     "@slidev/cli": "^52.19.0",
-    "@slidev/types": "^52.19.0",
     "hono": "^4.13.1"
   },
   "//devDependencies": "hono is not imported here. It reaches the tree as an auto-installed peer of @slidev/cli's MCP server, where pnpm overrides don't apply, and the resolved version carried CVEs; declaring it directly is the only way to pin it. Drop it once @slidev/cli resolves hono >= 4.12.34 on its own.",

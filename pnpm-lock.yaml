@@ -15,6 +15,9 @@ importers:
       '@iconify-json/lucide':
         specifier: ^1.2.20
         version: 1.2.120
+      '@slidev/types':
+        specifier: ^52.19.0
+        version: 52.19.0(@nuxt/kit@3.21.10)(@vue/compiler-sfc@3.5.40)(cac@7.0.0)(rolldown@1.2.3)(srvx@0.12.4)(typescript@6.0.3)(vite@8.2.1(@types/node@22.20.1)(jiti@2.7.0)(yaml@2.9.0))
       echarts:
         specifier: ^6.1.0
         version: 6.1.0
@@ -22,9 +25,6 @@ importers:
       '@slidev/cli':
         specifier: ^52.19.0
         version: 52.19.0(@nuxt/kit@3.21.10)(@types/markdown-it@14.1.2)(@types/node@22.20.1)(@vue/compiler-sfc@3.5.40)(cac@7.0.0)(hono@4.13.1)(lightningcss@1.33.0)(markdown-it@14.3.0)(postcss@8.5.25)(rolldown@1.2.3)(srvx@0.12.4)
-      '@slidev/types':
-        specifier: ^52.19.0
-        version: 52.19.0(@nuxt/kit@3.21.10)(@vue/compiler-sfc@3.5.40)(cac@7.0.0)(rolldown@1.2.3)(srvx@0.12.4)(typescript@6.0.3)(vite@8.2.1(@types/node@22.20.1)(jiti@2.7.0)(yaml@2.9.0))
       hono:
         specifier: ^4.13.1
         version: 4.13.1
