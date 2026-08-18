@@ -224,7 +224,7 @@ produced it — copy the snippet, swap the content, done.
 | [`agenda`](#agenda) | Table of contents | `kicker`, `items[{no,title,desc}]` |
 | [`metrics`](#metrics) | Stat cards (crimson top rule) | `title` / `items[{value,unit,label,note}]` · slot: `## title` |
 | [`compare`](#compare) | Before / after columns | `title`, `leftLabel`, `rightLabel` · slots: `::left::` `::right::` |
-| [`roadmap`](#roadmap) | Milestones (4 columns) | `title`, `items[{phase,title,desc,active}]` · slot: `## title` |
+| [`roadmap`](#roadmap) | Milestones (4 columns) | `title`, `items[{phase,title,desc,active}]` · slot: `## title` + `### description` |
 | [`timeline`](#timeline) | Horizontal timeline | `title`, `items[{time,title,desc,done}]` · slot: `## title` |
 | [`steps`](#steps) | Numbered step cards + icons | `title`, `items[{icon,step,title,desc}]` · slot: `## title` |
 | [`table`](#table) | Data table | `title`, `meta`, `note` · slot: Markdown table |
@@ -509,7 +509,8 @@ rightLabel: After
 ### `roadmap`
 
 Four milestone columns. `active: true` swaps the hairline for a 3px crimson rule
-and accents the phase label.
+and accents the phase label. Add a `###` line when the slide needs a supporting
+description under the title.
 
 ![roadmap layout](assets/layouts/roadmap.png)
 
@@ -534,6 +535,8 @@ items:
 ---
 
 ## 下一阶段的四个里程碑
+
+### 语义层、质量规则、财务对账与自动分账，按季度推进。
 ````
 
 ### `timeline`

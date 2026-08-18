@@ -1,8 +1,9 @@
 <script setup lang="ts">
-// Roadmap — h2 title over a 4-column milestone grid. Active phases get a
-// crimson 3px top border with an accent label; the rest get a 1px hairline
-// border with a muted label. Structured milestones come from `items`, the
-// heading from either the `title` prop or a markdown `## …` slot.
+// Roadmap — a large h2 title + optional h3 lead over a 4-column milestone grid.
+// Active phases get a crimson 3px top border with an accent label; the rest
+// get a 1px hairline border with a muted label. Structured milestones come
+// from `items`, the heading from either the `title` prop or a markdown `## …`
+// slot, and the supporting line from a markdown `### …` / paragraph.
 import { useSlideTitle } from '../composables/useSlideTitle'
 
 interface RoadmapItem {
@@ -71,6 +72,16 @@ const heading = useSlideTitle(props)
   font-weight: 700;
   letter-spacing: -0.02em;
 }
+.cd-roadmap :deep(h3),
+.cd-roadmap :deep(p) {
+  margin: 18px 0 0;
+  max-width: 1180px;
+  font-size: var(--cd-type-body);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--cd-muted);
+  text-wrap: pretty;
+}
 .cd-roadmap__grid {
   flex: 1;
   display: grid;
@@ -107,7 +118,7 @@ const heading = useSlideTitle(props)
   line-height: 1.5;
 }
 
-/* Heading via markdown slot (`## …`) — mirrors the `title` prop styling. */
+/* Heading via markdown slot (`## …`) and lead (`### …` / paragraph). */
 .cd-roadmap :deep(h2) {
   margin: 0;
   font-size: var(--cd-type-title);

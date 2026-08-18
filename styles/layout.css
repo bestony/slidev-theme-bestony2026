@@ -43,6 +43,10 @@
   background: var(--cd-accent);
   color: var(--cd-on-accent);
 }
+.slidev-layout ol {
+  list-style: decimal outside;
+  padding-left: 1.4em;
+}
 .slidev-layout ol li::marker {
   color: var(--cd-accent);
 }
