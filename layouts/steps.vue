@@ -1,10 +1,13 @@
 <script setup lang="ts">
-// Steps — a titled band of three process cards. Each card stacks a lucide icon,
-// a monospaced step label, a title and an optional description on a surface
-// panel. Structured card data is a frontmatter array; the slide title comes from
-// the `title` prop or a markdown <h2> in the default slot (choose one).
+// Steps — an adaptive band of process cards that packs 3-6 items into one or
+// two rows. Each card stacks a lucide icon, a monospaced step label, a title
+// and an optional description on a surface panel. Structured card data is a
+// frontmatter array; the slide title comes from the `title` prop or a markdown
+// <h2> in the default slot (choose one).
 // Frontmatter: title, items[]. Default slot: <h2> title.
+import { computed } from 'vue'
 import { useSlideTitle } from '../composables/useSlideTitle'
+import { packRows } from '../composables/layoutPacking'
 
 interface StepItem {
   /** lucide icon name, e.g. "git-branch" → renders <div class="i-lucide-git-branch"> */
@@ -35,18 +38,31 @@ const props = withDefaults(
 )
 
 const heading = useSlideTitle(props)
+const rows = computed(() => packRows(props.items ?? []))
+
+const rowStyle = (row: StepItem[]) => ({
+  '--cd-steps-columns': String(row.length),
+  '--cd-steps-width': row.length < 3 ? `${(row.length / 3) * 100}%` : '100%',
+}) as Record<string, string>
 </script>
 
 <template>
   <div class="slidev-layout cd-steps">
     <h2 v-if="heading" class="cd-steps__title">{{ heading }}</h2>
     <slot />
-    <div class="cd-steps__grid">
-      <div v-for="(item, i) in items" :key="i" class="cd-steps__card">
-        <div :class="`i-lucide-${item.icon}`" style="width:44px;height:44px;color:var(--cd-accent)" />
-        <span class="cd-steps__step">{{ item.step }}</span>
-        <span class="cd-steps__name">{{ item.title }}</span>
-        <span v-if="item.desc" class="cd-steps__desc">{{ item.desc }}</span>
+    <div v-if="rows.length" class="cd-steps__rows" :class="{ 'is-stacked': rows.length > 1 }">
+      <div
+        v-for="(row, rowIndex) in rows"
+        :key="rowIndex"
+        class="cd-steps__row"
+        :style="rowStyle(row)"
+      >
+        <div v-for="(item, i) in row" :key="i" class="cd-steps__card">
+          <div :class="`i-lucide-${item.icon}`" style="width:44px;height:44px;color:var(--cd-accent)" />
+          <span class="cd-steps__step">{{ item.step }}</span>
+          <span class="cd-steps__name">{{ item.title }}</span>
+          <span v-if="item.desc" class="cd-steps__desc">{{ item.desc }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -78,10 +94,20 @@ const heading = useSlideTitle(props)
   max-width: 1200px;
 }
 
-.cd-steps__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.cd-steps__rows {
+  display: flex;
+  flex-direction: column;
   gap: 32px;
+}
+.cd-steps__rows.is-stacked {
+  gap: 28px;
+}
+.cd-steps__row {
+  display: grid;
+  grid-template-columns: repeat(var(--cd-steps-columns), minmax(0, 1fr));
+  gap: 32px;
+  width: var(--cd-steps-width);
+  margin: 0 auto;
 }
 .cd-steps__card {
   display: flex;
@@ -89,6 +115,11 @@ const heading = useSlideTitle(props)
   gap: var(--cd-gap-item);
   padding: 52px 44px;
   background: var(--cd-surface);
+  min-width: 0;
+}
+.cd-steps__rows.is-stacked .cd-steps__card {
+  padding: 44px 40px;
+  gap: 22px;
 }
 .cd-steps__step {
   font-family: var(--cd-font-mono);
@@ -99,6 +130,7 @@ const heading = useSlideTitle(props)
   font-size: var(--cd-type-subtitle);
   font-weight: 500;
   line-height: 1.25;
+  min-width: 0;
 }
 .cd-steps__desc {
   font-size: var(--cd-type-micro);

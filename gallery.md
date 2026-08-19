@@ -196,7 +196,7 @@ items:
     done: false
 ---
 
-## 项目演进的四个阶段
+## 项目演进阶段
 
 ---
 layout: steps
@@ -215,7 +215,7 @@ items:
     desc: BI 侧无需重复建模，指标全局唯一
 ---
 
-## 团队接入只需要三步
+## 团队接入流程
 
 ---
 layout: table

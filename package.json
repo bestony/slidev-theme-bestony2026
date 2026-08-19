@@ -56,7 +56,8 @@
   },
   "devDependencies": {
     "@slidev/cli": "^52.19.0",
-    "hono": "^4.13.1"
+    "hono": "^4.13.1",
+    "playwright-chromium": "^1.62.1"
   },
   "//devDependencies": "hono is not imported here. It reaches the tree as an auto-installed peer of @slidev/cli's MCP server, where pnpm overrides don't apply, and the resolved version carried CVEs; declaring it directly is the only way to pin it. Drop it once @slidev/cli resolves hono >= 4.12.34 on its own.",
   "//": "Learn more: https://sli.dev/guide/write-theme.html",

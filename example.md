@@ -431,7 +431,84 @@ items:
     done: false
 ---
 
-## 项目演进的四个阶段
+## 项目演进阶段
+
+---
+layout: timeline
+items:
+  - time: 2025 Q4
+    title: 立项与评审
+    desc: 确认范围与里程碑
+    done: true
+  - time: 2026 Q1
+    title: 首条链路上线
+    desc: 先跑通一条业务链路
+    done: true
+  - time: 2026 Q2
+    title: 质量规则收敛
+    desc: 把告警和值班接进来
+    done: false
+---
+
+## 项目演进的三个阶段
+
+---
+layout: timeline
+items:
+  - time: 2025 Q4
+    title: 立项与架构评审
+    desc: 统一方案和边界
+    done: true
+  - time: 2026 Q1
+    title: 首条链路上线
+    desc: 双跑并验证稳定性
+    done: true
+  - time: 2026 Q2
+    title: 语义层上线
+    desc: 指标口径收敛
+    done: true
+  - time: 2026 Q3
+    title: 质量规则接入
+    desc: 告警和值班联动
+    done: false
+  - time: 2026 Q4
+    title: 旧链路下线
+    desc: 清理遗留脚本
+    done: false
+---
+
+## 项目演进的五个阶段
+
+---
+layout: timeline
+items:
+  - time: 2025 Q4
+    title: 立项与评审
+    desc: 确认边界与节奏
+    done: true
+  - time: 2026 Q1
+    title: 首条链路上线
+    desc: 完成首个双跑
+    done: true
+  - time: 2026 Q2
+    title: 语义层扩展
+    desc: 覆盖核心指标
+    done: true
+  - time: 2026 Q3
+    title: 质量规则落地
+    desc: 接入告警和值班
+    done: false
+  - time: 2026 Q4
+    title: 全量切换
+    desc: 迁移主链路
+    done: false
+  - time: 2027 Q1
+    title: 收尾与复盘
+    desc: 下线旧依赖
+    done: false
+---
+
+## 项目演进的六个阶段
 
 ---
 layout: steps
@@ -450,7 +527,65 @@ items:
     desc: BI 侧无需重复建模，指标全局唯一
 ---
 
-## 团队接入只需要三步
+## 团队接入流程
+
+---
+layout: steps
+items:
+  - icon: git-branch
+    step: Step 01
+    title: 提交定义
+    desc: 先把指标写进仓库
+  - icon: shield-check
+    step: Step 02
+    title: 口径校验
+    desc: 自动校验字段与依赖
+  - icon: line-chart
+    step: Step 03
+    title: 流水线联调
+    desc: 跑通测试与预览
+  - icon: database
+    step: Step 04
+    title: 环境验证
+    desc: 在 staging 跑一次真实任务
+  - icon: check-circle
+    step: Step 05
+    title: 批量推广
+    desc: 让看板切到统一指标
+---
+
+## 团队接入需要五步
+
+---
+layout: steps
+items:
+  - icon: git-branch
+    step: Step 01
+    title: 提交定义
+    desc: 先把指标写进仓库
+  - icon: shield-check
+    step: Step 02
+    title: 口径校验
+    desc: 自动校验字段与依赖
+  - icon: line-chart
+    step: Step 03
+    title: 流水线联调
+    desc: 跑通测试与预览
+  - icon: database
+    step: Step 04
+    title: 环境验证
+    desc: 在 staging 跑一次真实任务
+  - icon: workflow
+    step: Step 05
+    title: 分批切换
+    desc: 按业务域逐步接入
+  - icon: check-circle
+    step: Step 06
+    title: 完成收口
+    desc: 复盘、归档、清理遗留配置
+---
+
+## 团队接入需要六步
 
 ---
 layout: fact

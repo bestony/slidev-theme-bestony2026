@@ -1,3 +1,5 @@
+allowBuilds:
+  playwright-chromium: true
 # pnpm settings. As of pnpm 11 these live here, not under a `pnpm` key in
 # package.json — that key is silently ignored (and pnpm 9 is the reverse, hence
 # the pinned packageManager).

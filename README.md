@@ -542,7 +542,8 @@ items:
 ### `timeline`
 
 Horizontal timeline on a centered rail. `done: true` fills the marker crimson;
-unfinished stages stay outlined and muted.
+3-4 items stay in one row, while 5-6 items split into balanced rows with a
+centered 2-item tail.
 
 ![timeline layout](assets/layouts/timeline.png)
 
@@ -568,13 +569,14 @@ items:
     done: false
 ---
 
-## 项目演进的四个阶段
+## 项目演进阶段
 ````
 
 ### `steps`
 
-Three process cards, each with a lucide icon, a monospaced step label, a title
-and a note. Icons must be safelisted — see [Icons](#icons).
+Numbered step cards with lucide icons. 3-4 items stay in one row; 5-6 items
+split into two balanced rows with a centered 2-item tail. Icons must be
+safelisted — see [Icons](#icons).
 
 ![steps layout](assets/layouts/steps.png)
 
@@ -596,8 +598,21 @@ items:
     desc: BI 侧无需重复建模，指标全局唯一
 ---
 
-## 团队接入只需要三步
+## 团队接入流程
 ````
+
+The example deck also includes the 3, 5 and 6 item variants below so you can
+see the packing behavior without editing the sample slides first.
+
+#### Adaptive samples
+
+| Timeline 3 | Timeline 5 | Timeline 6 |
+| --- | --- | --- |
+| ![timeline 3](assets/09-timeline-3.png) | ![timeline 5](assets/10-timeline-5.png) | ![timeline 6](assets/11-timeline-6.png) |
+
+| Steps 3 | Steps 5 | Steps 6 |
+| --- | --- | --- |
+| ![steps 3](assets/06-steps.png) | ![steps 5](assets/12-steps-5.png) | ![steps 6](assets/13-steps-6.png) |
 
 ### `table`
 

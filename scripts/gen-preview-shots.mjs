@@ -1,9 +1,9 @@
-// Regenerate the eight images in the README's Preview table.
+// Regenerate the README screenshot images from example.md.
 //
-// They are pages of `example.md` — the full demo deck, not the one-slide-per-
-// layout gallery — chosen to show the theme's range at a glance. Each is
-// located by a marker unique to its slide rather than by page number, so
-// editing or reordering the deck either still finds the slide or fails loudly.
+// The deck now contributes the main preview images plus the adaptive
+// timeline/steps samples used later in the README. Each target is located by a
+// marker unique to its slide rather than by page number, so editing or
+// reordering the deck still finds the slide or fails loudly.
 //
 // Usage: pnpm screenshot:preview
 
@@ -25,9 +25,14 @@ const PREVIEWS = [
   { file: '03-sankey.png', match: '## 血缘图谱把排查时间压到 10 分钟内' },
   { file: '04-diagram.png', match: 'title: 端到端数据链路' },
   { file: '05-chart-bar.png', match: '## 四条业务线的成本变化' },
-  { file: '06-steps.png', match: '## 团队接入只需要三步' },
+  { file: '06-steps.png', match: '## 团队接入流程' },
   { file: '07-code-cols.png', match: '## 指标定义变成可审查的代码' },
-  { file: '08-timeline.png', match: '## 项目演进的四个阶段' },
+  { file: '08-timeline.png', match: '## 项目演进阶段' },
+  { file: '09-timeline-3.png', match: '## 项目演进的三个阶段' },
+  { file: '10-timeline-5.png', match: '## 项目演进的五个阶段' },
+  { file: '11-timeline-6.png', match: '## 项目演进的六个阶段' },
+  { file: '12-steps-5.png', match: '## 团队接入需要五步' },
+  { file: '13-steps-6.png', match: '## 团队接入需要六步' },
 ]
 
 const slides = readSlides(ENTRY)

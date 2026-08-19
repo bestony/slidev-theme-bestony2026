@@ -1,11 +1,13 @@
 <script setup lang="ts">
-// Timeline — a vertically-centered horizontal timeline: one title, an absolute
-// rail line, and a row of node columns (square marker + monospaced time +
-// stage title + description). Solid crimson marks a finished stage; an outlined
-// muted marker marks a stage still ahead.
+// Timeline — an adaptive horizontal timeline that packs 3-6 items into one or
+// two centered rows. Each rail lane keeps the square marker, monospaced time,
+// stage title and description together. Solid crimson marks a finished stage;
+// an outlined muted marker marks a stage still ahead.
 // Frontmatter: title? (or write the heading as markdown `##`), items[].
 // Slot: <h2> heading (+ optional lead <p>).
+import { computed } from 'vue'
 import { useSlideTitle } from '../composables/useSlideTitle'
+import { packRows } from '../composables/layoutPacking'
 
 interface TimelineItem {
   time: string
@@ -32,6 +34,12 @@ const props = withDefaults(
 )
 
 const heading = useSlideTitle(props)
+const rows = computed(() => packRows(props.items ?? []))
+
+const rowStyle = (row: TimelineItem[]) => ({
+  '--cd-timeline-columns': String(row.length),
+  '--cd-timeline-width': row.length < 3 ? `${(row.length / 3) * 100}%` : '100%',
+}) as Record<string, string>
 </script>
 
 <template>
@@ -41,18 +49,25 @@ const heading = useSlideTitle(props)
       <slot />
     </div>
 
-    <div class="cd-timeline__track">
-      <div class="cd-timeline__rail" />
+    <div v-if="rows.length" class="cd-timeline__track">
       <div
-        v-for="(item, i) in items"
-        :key="i"
-        class="cd-timeline__node"
-        :class="{ 'is-done': item.done }"
+        v-for="(row, rowIndex) in rows"
+        :key="rowIndex"
+        class="cd-timeline__row"
+        :style="rowStyle(row)"
       >
-        <span class="cd-timeline__dot" />
-        <span class="cd-timeline__time">{{ item.time }}</span>
-        <span class="cd-timeline__label">{{ item.title }}</span>
-        <span v-if="item.desc" class="cd-timeline__desc">{{ item.desc }}</span>
+        <div class="cd-timeline__rail" />
+        <div
+          v-for="(item, i) in row"
+          :key="i"
+          class="cd-timeline__node"
+          :class="{ 'is-done': item.done }"
+        >
+          <span class="cd-timeline__dot" />
+          <span class="cd-timeline__time">{{ item.time }}</span>
+          <span class="cd-timeline__label">{{ item.title }}</span>
+          <span v-if="item.desc" class="cd-timeline__desc">{{ item.desc }}</span>
+        </div>
       </div>
     </div>
   </div>
@@ -93,12 +108,19 @@ const heading = useSlideTitle(props)
   color: var(--cd-muted);
 }
 
-/* ---- horizontal track: rail line + four node columns ------------------- */
+/* ---- horizontal track: stacked rows with one rail per row -------------- */
 .cd-timeline__track {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}
+.cd-timeline__row {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(var(--cd-timeline-columns), minmax(0, 1fr));
   gap: 48px;
+  width: var(--cd-timeline-width);
+  margin: 0 auto;
 }
 .cd-timeline__rail {
   position: absolute;
@@ -112,6 +134,7 @@ const heading = useSlideTitle(props)
   display: flex;
   flex-direction: column;
   gap: 28px;
+  min-width: 0;
 }
 
 /* ---- node marker: outlined by default, solid crimson once done --------- */
