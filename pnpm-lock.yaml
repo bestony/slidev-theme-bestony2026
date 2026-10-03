@@ -24,10 +24,10 @@ importers:
     devDependencies:
       '@slidev/cli':
         specifier: ^52.19.0
-        version: 52.19.0(@nuxt/kit@3.21.10)(@types/markdown-it@14.1.2)(@types/node@22.20.1)(@vue/compiler-sfc@3.5.40)(cac@7.0.0)(hono@4.13.1)(lightningcss@1.33.0)(markdown-it@14.3.0)(playwright-chromium@1.62.1)(postcss@8.5.25)(rolldown@1.2.3)(srvx@0.12.4)
+        version: 52.19.0(@nuxt/kit@3.21.10)(@types/markdown-it@14.1.2)(@types/node@22.20.1)(@vue/compiler-sfc@3.5.40)(cac@7.0.0)(hono@4.13.7)(lightningcss@1.33.0)(markdown-it@14.3.0)(playwright-chromium@1.62.1)(postcss@8.5.25)(rolldown@1.2.3)(srvx@0.12.4)
       hono:
         specifier: ^4.13.1
-        version: 4.13.1
+        version: 4.13.7
       playwright-chromium:
         specifier: ^1.62.1
         version: 1.62.1
@@ -1858,8 +1858,8 @@ packages:
   hey-listen@1.0.8:
     resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==}
 
-  hono@4.13.1:
-    resolution: {integrity: sha512-kdJoFVv2xmayw6cY09H7AbMJMt8Jn5jdlEdXsP7AGBdF2DIptVlKlOLKXP41yPip4/a3yQPv9gVcJYI8YY04dw==}
+  hono@4.13.7:
+    resolution: {integrity: sha512-c8/gF9ac8Y78/agExVocyLevgR+JlpNB444Py0FSX8pJoPdYUfUzRcXtYEYGwt6l19qIlVZPN5Mfsw9jFShmQQ==}
     engines: {node: '>=16.9.0'}
 
   hookable@5.5.3:
@@ -3352,9 +3352,9 @@ snapshots:
 
   '@floating-ui/utils@0.2.12': {}
 
-  '@hono/node-server@2.1.0(hono@4.13.1)':
+  '@hono/node-server@2.1.0(hono@4.13.7)':
     dependencies:
-      hono: 4.13.1
+      hono: 4.13.7
 
   '@iconify-json/carbon@1.2.25':
     dependencies:
@@ -3434,12 +3434,12 @@ snapshots:
     dependencies:
       zod: 4.4.3
 
-  '@modelcontextprotocol/node@2.0.0(@modelcontextprotocol/server@2.0.0)(hono@4.13.1)':
+  '@modelcontextprotocol/node@2.0.0(@modelcontextprotocol/server@2.0.0)(hono@4.13.7)':
     dependencies:
-      '@hono/node-server': 2.1.0(hono@4.13.1)
+      '@hono/node-server': 2.1.0(hono@4.13.7)
       '@modelcontextprotocol/server': 2.0.0
     optionalDependencies:
-      hono: 4.13.1
+      hono: 4.13.7
 
   '@modelcontextprotocol/server@2.0.0':
     dependencies:
@@ -3779,7 +3779,7 @@ snapshots:
 
   '@shikijs/vscode-textmate@10.0.2': {}
 
-  '@slidev/cli@52.19.0(@nuxt/kit@3.21.10)(@types/markdown-it@14.1.2)(@types/node@22.20.1)(@vue/compiler-sfc@3.5.40)(cac@7.0.0)(hono@4.13.1)(lightningcss@1.33.0)(markdown-it@14.3.0)(playwright-chromium@1.62.1)(postcss@8.5.25)(rolldown@1.2.3)(srvx@0.12.4)':
+  '@slidev/cli@52.19.0(@nuxt/kit@3.21.10)(@types/markdown-it@14.1.2)(@types/node@22.20.1)(@vue/compiler-sfc@3.5.40)(cac@7.0.0)(hono@4.13.7)(lightningcss@1.33.0)(markdown-it@14.3.0)(playwright-chromium@1.62.1)(postcss@8.5.25)(rolldown@1.2.3)(srvx@0.12.4)':
     dependencies:
       '@antfu/ni': 30.3.0
       '@antfu/utils': 9.3.0
@@ -3788,7 +3788,7 @@ snapshots:
       '@iconify-json/ph': 1.2.2
       '@iconify-json/svg-spinners': 1.2.4
       '@lillallol/outline-pdf': 4.0.0
-      '@modelcontextprotocol/node': 2.0.0(@modelcontextprotocol/server@2.0.0)(hono@4.13.1)
+      '@modelcontextprotocol/node': 2.0.0(@modelcontextprotocol/server@2.0.0)(hono@4.13.7)
       '@modelcontextprotocol/server': 2.0.0
       '@shikijs/magic-move': 4.4.2(shiki@4.4.2)(vue@3.5.40(typescript@6.0.3))
       '@shikijs/markdown-it': 4.4.2
@@ -5247,7 +5247,7 @@ snapshots:
 
   hey-listen@1.0.8: {}
 
-  hono@4.13.1: {}
+  hono@4.13.7: {}
 
   hookable@5.5.3: {}
 
