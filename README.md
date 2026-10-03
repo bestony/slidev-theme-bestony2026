@@ -31,9 +31,33 @@ PlantUML / code blocks.
 
 <sub>Rendered from <a href="./example.md"><code>example.md</code></a> at 1920×1080. See it live with <code>pnpm dev</code>.</sub>
 
+## Create a new presentation
+
+Use the Slidev CLI to scaffold a new deck and choose this theme during setup:
+
+```bash
+npm init slidev
+```
+
+When prompted for a theme, enter **`bestony2026`**:
+
+```
+? Theme (use `none` if not sure)  › bestony2026
+```
+
+Slidev will install the theme automatically and wire up the headmatter for you.
+Alternatively, pass `--theme` to skip the prompt:
+
+```bash
+npm init slidev -- --theme bestony2026
+```
+
+> **Note:** Remember to also set `canvasWidth: 1920` in your headmatter after
+> the project is created — see [Install](#install) below for details.
+
 ## Install
 
-Add the theme to your slides' headmatter — Slidev will prompt to install it:
+Add the theme to an existing deck's headmatter — Slidev will prompt to install it:
 
 ```yaml
 ---
