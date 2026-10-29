@@ -7,9 +7,20 @@ allowBuilds:
 # Security patches for transitive, dev-only dependencies whose parent resolves
 # them below the fixed release. Drop each entry once the parent ships the fix.
 #
-#   dompurify — monaco-editor 0.56.0 (the newest) pins `dompurify: 3.4.8`
-#   exactly, and several advisories are only fixed in 3.4.13. Same minor, so the
+#   dompurify — monaco-editor 0.57.0 (the newest) pins `dompurify: 3.4.15`
+#   exactly, and the advisories are only fixed in 3.4.17. Same minor, so the
 #   override is API-compatible.
+#
+#   markdown-it — not an override: @comark/markdown-it 0.3.4 (a @slidev/cli dep)
+#   peers on `markdown-it: ^14`, but pnpm resolves that peer to a 15.x copy from
+#   the graph, and 15 dropped the `lib/token.mjs` subpath it imports, so
+#   `slidev build` aborts. A root devDependency on 14.3.3 pulls the peer back
+#   into range; see the //devDependencies note in package.json.
+#
+#   image-size — pptxgenjs 4.0.1 (the newest) declares `image-size: ^1.2.1`, and
+#   the parser DoS fixes need 2.0.3. Safe despite the major: pptxgenjs bundles
+#   its own parser (`sizeof`) and never requires image-size at runtime, so the
+#   package is installed but unused.
 #
 #   @hono/node-server — @modelcontextprotocol/node declares ^1.19.9, but the
 #   path-traversal fix only landed in 2.0.5. Forcing a major here is safe for
@@ -17,5 +28,6 @@ allowBuilds:
 #   which v2 keeps; the only subpath v2 drops is ./vercel, which nothing uses.
 #   Verified by loading @modelcontextprotocol/node against v2.
 overrides:
-  dompurify: ^3.4.13
+  dompurify: ^3.4.17
+  image-size: ^2.0.4
   '@hono/node-server': ^2.0.5

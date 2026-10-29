@@ -26,7 +26,7 @@
     "mermaid"
   ],
   "engines": {
-    "node": ">=20.12.0"
+    "node": ">=22.12.0"
   },
   "packageManager": "pnpm@11.1.2",
   "files": [
@@ -50,28 +50,17 @@
     "screenshot:all": "pnpm screenshot:preview && pnpm screenshot:layouts && pnpm screenshot:accents"
   },
   "dependencies": {
-    "@iconify-json/lucide": "^1.2.138",
-    "@slidev/types": "^52.20.1",
+    "@iconify-json/lucide": "^1.2.148",
+    "@slidev/types": "^53.0.0",
     "echarts": "^6.1.0"
   },
   "devDependencies": {
-    "@slidev/cli": "^52.20.1",
-    "hono": "^4.13.12",
-    "playwright-chromium": "^1.63.0"
+    "@slidev/cli": "^53.0.0",
+    "hono": "^4.13.14",
+    "markdown-it": "^14.3.3",
+    "playwright-chromium": "^1.64.1"
   },
-  "//devDependencies": "hono is not imported here. It reaches the tree as an auto-installed peer of @slidev/cli's MCP server, where pnpm overrides don't apply, and the resolved version carried CVEs; declaring it directly is the only way to pin it. Drop it once @slidev/cli resolves hono >= 4.12.34 on its own.",
-  "pnpm": {
-    "overrides": {
-      "nanoid": ">=3.3.18",
-      "js-yaml": ">=4.3.2",
-      "image-size": ">=2.0.3",
-      "pptxgenjs>image-size": ">=2.0.3",
-      "braces": ">=3.0.4",
-      "chokidar>braces": ">=3.0.4",
-      "markdown-it": ">=14.3.1",
-      "dompurify": ">=3.4.16"
-    }
-  },
+  "//devDependencies": "hono and markdown-it are not imported here. Both reach the tree as auto-installed peers (@slidev/cli's MCP server, and @comark/markdown-it which peers on markdown-it ^14), where pnpm overrides don't apply and pnpm picks a version outside the peer range. Declaring them directly is the only way to pin them: hono carried CVEs, and markdown-it 15 dropped the lib/token.mjs subpath that @comark/markdown-it imports, which aborts slidev build. Drop each once its parent resolves it correctly on its own.",
   "//": "Learn more: https://sli.dev/guide/write-theme.html",
   "slidev": {
     "colorSchema": "dark",
