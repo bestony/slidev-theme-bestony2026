@@ -33,27 +33,29 @@ PlantUML / code blocks.
 
 ## Create a new presentation
 
-Use the Slidev CLI to scaffold a new deck and choose this theme during setup:
+Scaffold a deck with the Slidev CLI, then switch it to this theme:
 
 ```bash
-npm init slidev
+npm init slidev@latest my-deck
+cd my-deck
 ```
 
-When prompted for a theme, enter **`bestony2026`**:
+`create-slidev` has no theme prompt and no `--theme` flag; it always generates
+the default starter. Open the generated `slides.md` and replace the headmatter
+`theme:` line (and set the canvas size):
 
-```
-? Theme (use `none` if not sure)  › bestony2026
-```
-
-Slidev will install the theme automatically and wire up the headmatter for you.
-Alternatively, pass `--theme` to skip the prompt:
-
-```bash
-npm init slidev -- --theme bestony2026
+```yaml
+---
+theme: bestony2026
+canvasWidth: 1920
+---
 ```
 
-> **Note:** Remember to also set `canvasWidth: 1920` in your headmatter after
-> the project is created — see [Install](#install) below for details.
+Then run `npm install` (or `pnpm install`) and `npm run dev`. Slidev will offer
+to install the theme automatically if it is missing.
+
+> **Note:** `canvasWidth: 1920` is required for the intended proportions — see
+> [Install](#install) below for details.
 
 ## Install
 
